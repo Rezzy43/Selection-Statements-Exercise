@@ -1,28 +1,36 @@
-﻿namespace SelectionStatementExercise
+﻿using System.ComponentModel;
+
+namespace SelectionStatementExercise
 {
     public class Program
     {
         static void Main(string[] args)
         {
-            var r = new Random();
-            var favNumber = r.Next(1, 1000);
-
+            // Set the favorite number to 42
+            int favNumber = 42;
+            
             Console.WriteLine("Try to guess my favorite number:");
-            var userInput = int.Parse(Console.ReadLine());
+            int userInput;
 
-            if (userInput < favNumber)
+            // Loop until the user guesses the corret number
+            while (true)
             {
-                Console.WriteLine("Too low!");
-            }
-            else if (userInput > favNumber)
-            {
-                Console.WriteLine("Too high!");
-            }
-            else
-            {
-                Console.WriteLine("You guessed it!!!");
-            }
+                userInput = int.Parse(Console.ReadLine());
 
+                if (userInput < favNumber)
+                {
+                    Console.WriteLine("Too Low!");
+                }
+                else if (userInput > favNumber)
+                {
+                    Console.WriteLine("Too High!");
+                }
+                else
+                {
+                    Console.WriteLine("You guessed it!!!");
+                    break; // Exit the loop if guessed correctly
+                }
+            }
         }
     }
 }
